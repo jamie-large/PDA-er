@@ -188,10 +188,7 @@ def run_PDA(code):
 				str_buf.append(line)
 			ch_buf = []
 			for ch in ''.join(str_buf):
-				ch_buf.append(str(bin(ord(ch))))
-			additional_code = '.' + '..'.join(ch_buf) + '.' if len(ch_buf) > 0 else ''
-			code = additional_code + code[c:]
-			c = 0
+				inputs.append(ord(ch))
 			print()
 			continue
 
