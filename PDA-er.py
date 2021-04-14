@@ -38,11 +38,8 @@ def main():
 	# Get the code, either as input from the user until they send EOF or from the specified file
 	if (len(sys.argv) == 1):
 		str_buf = []
-		while True:
-			buf = sys.stdin.readline()
-			if not buf:
-				break
-			str_buf.append(buf)
+		for line in sys.stdin:
+			str_buf.append(line)
 		code = ''.join(str_buf)
 	else:
 		try:
@@ -187,13 +184,15 @@ def run_PDA(code):
 		elif (code[c] == '-'):
 			c += 1
 			str_buf = []
-			while True:
-				buf = sys.stdin.readline()
-				if not buf:
-					break
-				str_buf.append(buf)
-			code = ''.join(str_buf) + code[c:]
+			for line in sys.stdin:
+				str_buf.append(line)
+			ch_buf = []
+			for ch in ''.join(str_buf):
+				ch_buf.append(str(bin(ord(ch))))
+			additional_code = '.' + '..'.join(ch_buf) + '.' if len(ch_buf) > 0 else ''
+			code = additional_code + code[c:]
 			c = 0
+			print()
 			continue
 
 	if (len(inputs) == 0):
@@ -316,14 +315,14 @@ def read_binary(code, stop_char, default=''):
 def print_PDA():
 	for state in PDA:
 		if (PDA[state] == starting_state):
-			print "STARTING STATE"
-		print "state name: " + str(PDA[state].name)
-		print "accepting: " + str(PDA[state].accepting)
-		print "state paths: " 
+			print("STARTING STATE")
+		print ("state name: " + str(PDA[state].name))
+		print ("accepting: " + str(PDA[state].accepting))
+		print ("state paths: " )
 		for path in PDA[state].paths:
 			for multiple_path in PDA[state].paths[path]:
-				print "\t" + str(path) + ": (" + str(multiple_path[0]) + ", " + str(multiple_path[1].name) + ")"
-		print
+				print ("\t" + str(path) + ": (" + str(multiple_path[0]) + ", " + str(multiple_path[1].name) + ")")
+		print()
 
 
 
