@@ -1,19 +1,28 @@
+### Create a starting, rejecting state 1 that pushes 1 to the stack and moves to state 0
 .1.---1--
-.0.
--101000--0--
--101001-0---
---1--1000010-
+### Create a rejecting state 0 that pushes a 0 to the stack if it sees an (, pops a 0 from the stack if it sees a ), and has an epsilon transition that pops a 1 from the stack and moves to state 'B'
+.0.-101000--0---101001-0-----1--1000010-
+### Create a rejecting state 'B' with an epsilon transition to state 'a'
 .1000010.----1100001-
-.1100001.-0---1101100-
--1---1101110-
+### Create a rejecting state 'a' that moves to state 'l' when it sees a 0 and to state 'n' when it sees a 1
+.1100001.-0---1101100--1---1101110-
+### Create a rejecting state 'l' with an epsilon transition to state 'a'
 .1101100.----1100001-
+### Create a rejecting state 'n' with an epsilon transition to state 'c'
 .1101110.----1100011-
+### Create a rejecting state 'c' with an epsilon transition to state 'e'
 .1100011.----1100101-
+### Create a rejecting state 'e' with an epsilon transition to state 'd'
 .1100101.----1100100-
+### Create a rejecting state 'd' with an epsilon transition to state 33
 .1100100.----100001-
+### Create an accepting state 33
 ..100001.
+### Finish creating the PDA
 !
+### Accept the shortest possible output
 ..
+### Take input from the user
 -
-.0.
-.1.
+### Input a 0 and 1
+.0..1.
