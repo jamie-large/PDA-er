@@ -1,24 +1,24 @@
-.1001000.
-----1100101-
-.1100101.
-----1101100-
-.1101100.
-----1101100-
-----1101111-
-----1100100-
-.1101111.
-----101100-
-----1110010-
-.101100.
-----100000-
-.100000.
-----1110111-
-.1110111.
-----1101111-
-.1110010.
-----1101100-
-.1100100.
-----100001-
+### Create a starting, rejecting state 'H' with an epsilon transition to state 'e'
+.1001000.----1100101-
+### Create a rejecting state 'e' with an epsilon transition to state 'l'
+.1100101.----1101100-
+### Create a rejecting state 'l' with an epsilon transition to states 'l', 'o', and 'd'
+.1101100.----1101100-----1101111-----1100100-
+### Create a rejecting state 'o' with an epsilon transition to states ',' and 'r'
+.1101111.----101100-----1110010-
+### Create a rejecting state ',' with an epsilon transition to state ' '
+.101100.----100000-
+### Create a rejecting state ' ' with an epsilon transition to state 'w'
+.100000.----1110111-
+### Create a rejecting state 'w' with an epsilon transition to state 'o'
+.1110111.----1101111-
+### Create a rejecting state 'r' with an epsilon transition to state 'l'
+.1110010.----1101100-
+### Create a rejecting state 'd' with an epsilon transition to state 33
+.1100100.----100001-
+### Create an accepting state 33
 ..100001.
+### Finish creating the PDA
 !
+### Accept the 35th possible output
 .100011.
